@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>Document</title>
+
+    <style>
+        .grid-item {
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-purple-900 to-indigo-800 min-h-screen font-sans text-white">
+
+    <!-- Encabezado -->
+    <header class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+            <div class="md:col-span-1">
+                <h1 class="text-4xl font-bold">Grid Master</h1>
+                <p class="text-purple-200">Poder y flexibilidad con Tailwind CSS</p>
+            </div>
+            <nav class="md:col-span-2">
+                <ul class="grid grid-cols-3 gap-2 text-center">
+                    <li class="bg-purple-700 bg-opacity-50 py-2 rounded-lg hover:bg-opacity-70 cursor-pointer">Inicio</li>
+                    <li class="bg-purple-700 bg-opacity-50 py-2 rounded-lg hover:bg-opacity-70 cursor-pointer">Ejemplos</li>
+                    <li class="bg-purple-700 bg-opacity-50 py-2 rounded-lg hover:bg-opacity-70 cursor-pointer">Contacto</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+                <h2 class="text-5xl font-bold mb-4">Domina el Grid System</h2>
+                <p class="text-xl text-purple-200 mb-6">Diseña layouts complejos y responsivos con el poder de CSS Grid implementado en Tailwind.</p>
+                <button class="bg-gradient-to-r from-pink-500 to-purple-600 px-8 py-3 rounded-lg text-lg font-semibold hover:from-pink-600 hover:to-purple-700">Aprende Más</button>
+            </div>
+            <div class="grid grid-cols-4 grid-rows-4 gap-2 h-64">
+                <div class="col-span-2 row-span-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-2">
+                    <p class="text-center">Este es un bloque grande (2x2)</p>
+                </div>
+
+
+                <div class="col-span-2 row-span-1 bg-gradient-to-t from-green-400 to-blue-500 p-2">
+                    <p class="text-center">Este es un bloque grande (2x1)</p>  
+                </div>
+
+
+                <div class="col-span-1 row-span-1 bg-gradient-to-br from-yellow-400 to-red-500 p-2">
+                    <p class="text-center">Este es un bloque pequeño (1x1)</p>
+                </div>
+
+
+                <div class="col-span-1 row-span-2 bg-gradient-to-l from-purple-600 to-blue-500 p-2">
+                    <p class="text-center">Este es un bloque alargado (1x2)</p>   
+                </div>
+
+                <div class="col-span-3 row-span-1 bg-gradient-to-r from-teal-400 to-pink-600 p-2">
+                    <p class="text-center">Este es un bloque grande horizontal (3x1)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Características -->
+     <section class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-12">Características de Grid en Tailwind</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid-item bg-gradient-to-br from-purple-800 to-purple-900 p-6 rounded-xl">
+                <h3 class="text-xl font-bold mb-3">Grid Template Columns</h3>
+                <p class="text-purple-200">Define el número y tamaño de columnas con grid-cols-{n} o grid-cols-[pattern]</p>
+            </div>
+            <div class="grid-item bg-gradient-to-br from-indigo-800 to-indigo-900 p-6 rounded-xl">
+                <h3 class="text-xl font-bold mb-3">Grid Column Span</h3>
+                <p class="text-indigo-200">Controla cuántas columnas ocupa un elemento con col-span-{n}</p>
+            </div>
+            <div class="grid-item bg-gradient-to-br from-blue-800 to-blue-900 p-6 rounded-xl">
+                <h3 class="text-xl font-bold mb-3">Grid Template Rows</h3>
+                <p class="text-blue-200">Define filas con grid-rows-{n} o grid-rows-[pattern]</p>
+            </div>
+            <div class="grid-item bg-gradient-to-br from-pink-800 to-pink-900 p-6 rounded-xl">
+                <h3 class="text-xl font-bold mb-3">Gap</h3>
+                <p class="text-pink-200">Añade espacio entre elementos con gap-{size}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-6">Proyectos Destacados</h2>
+        <p class="text-center text-lg text-purple-200 mb-12">Diferentes layouts de grid para inspirarte</p>
+        <!-- Grid asimétrico -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+            <div class="bg-gradient-to-br from-red-500 to-pink-600 rounded-lg p-6 md:col-span-2 md:row-span-2 min-h-32 grid-item">
+                <h3 class="text-xl font-bold">Portal de Noticias</h3>
+                <p>Destacado 2x2</p>
+            </div>
+            <div class="bg-gradient-to-br from-yellow-500 to-orange-600 rounded-lg p-6 min-h-32 grid-item">
+                <h3 class="font-bold">Galería</h3>
+                <p>1x1</p>
+            </div>
+            <div class="bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg p-6 min-h-32 grid-item">
+                <h3 class="font-bold">Blog</h3>
+                <p>1x1</p>
+            </div>
+            <div class="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg p-6 md:col-span-2 min-h-32 grid-item">
+                <h3 class="font-bold">Dashboard</h3>
+                <p>2x1</p>
+            </div>
+        </div>
+        <!-- Grid simétrico -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div class="bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-lg p-4 aspect-square flex items-center justify-center text-center grid-item">
+                <div>
+                    <h3 class="font-bold">Portfolio</h3>
+                    <p class="text-indigo-200">Diseño de cuadrícula</p>
+                </div>
+            </div>
+            <div class="bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg p-4 aspect-square flex items-center justify-center text-center grid-item">
+                <div>
+                    <h3 class="font-bold">E-commerce</h3>
+                    <p class="text-purple-200">Catálogo de productos</p>
+                </div>
+            </div>
+            <div class="bg-gradient-to-br from-pink-500 to-pink-700 rounded-lg p-4 aspect-square flex items-center justify-center text-center grid-item">
+                <div>
+                    <h3 class="font-bold">Landing</h3>
+                    <p class="text-pink-200">Página de destino</p>
+                </div>
+            </div>
+            <div class="bg-gradient-to-br from-red-500 to-red-700 rounded-lg p-4 aspect-square flex items-center justify-center text-center grid-item">
+                <div>
+                    <h3 class="font-bold">Aplicación</h3>
+                    <p class="text-red-200">Dashboard UI</p>
+                </div>
+            </div>
+            <div class="bg-gradient-to-br from-orange-500 to-orange-700 rounded-lg p-4 aspect-square flex items-center justify-center text-center grid-item">
+                <div>
+                    <h3 class="font-bold">Social</h3>
+                    <p class="text-orange-200">Feed de usuarios</p>
+                </div>
+            </div>
+            <div class="bg-gradient-to-br from-green-500 to-green-700 rounded-lg p-4 aspect-square flex items-center justify-center text-center grid-item">
+                <div>
+                    <h3 class="font-bold">Foro</h3>
+                    <p class="text-green-200">Listado de temas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Responsive Grid Demo -->
+    <section class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-6">Demo Responsive</h2>
+        <p class="text-center text-lg text-purple-200 mb-12">Cambia el tamaño de tu navegador para ver cómo se adapta</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+            <div class="bg-purple-800 p-4 rounded-lg text-center">
+                <p class="font-bold">1</p>
+                <p class="text-xs text-purple-300">xs: 100%</p>
+                <p class="text-xs text-purple-300">sm+: 50%</p>
+                <p class="text-xs text-purple-300">md+: 33%</p>
+                <p class="text-xs text-purple-300">lg+: 25%</p>
+                <p class="text-xs text-purple-300">xl+: 16%</p>
+            </div>
+            <div class="bg-purple-700 p-4 rounded-lg text-center">
+                <p class="font-bold">2</p>
+                <p class="text-xs text-purple-300">col</p>
+            </div>
+            <div class="bg-purple-800 p-4 rounded-lg text-center">
+                <p class="font-bold">3</p>
+                <p class="text-xs text-purple-300">col</p>
+            </div>
+            <div class="bg-purple-700 p-4 rounded-lg text-center">
+                <p class="font-bold">4</p>
+                <p class="text-xs text-purple-300">col</p>
+            </div>
+            <div class="bg-purple-800 p-4 rounded-lg text-center">
+                <p class="font-bold">5</p>
+                <p class="text-xs text-purple-300">col</p>
+            </div>
+            <div class="bg-purple-700 p-4 rounded-lg text-center">
+                <p class="font-bold">6</p>
+                <p class="text-xs text-purple-300">col</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auto y minmax -->
+    <section class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-6">Grid Avanzado</h2>
+        <p class="text-center text-lg text-purple-200 mb-12">Auto-fit, auto-fill y otras técnicas avanzadas</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Auto Columns -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Auto-columns con grid-flow-col</h3>
+                <div class="grid grid-flow-col auto-cols-auto gap-4 overflow-x-auto pb-4">
+                    <div class="bg-blue-600 p-4 rounded-lg whitespace-nowrap">Elemento 1 (auto)</div>
+                    <div class="bg-blue-600 p-4 rounded-lg whitespace-nowrap">Elemento 2 (más largo)</div>
+                    <div class="bg-blue-600 p-4 rounded-lg whitespace-nowrap">3</div>
+                    <div class="bg-blue-600 p-4 rounded-lg whitespace-nowrap">Elemento 4 (texto más extenso)</div>
+                    <div class="bg-blue-600 p-4 rounded-lg whitespace-nowrap">Elemento 5</div>
+                </div>
+            </div>
+            <!-- Grid Areas Simulado -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Imitando Grid Areas</h3>
+                <div class="grid grid-cols-3 grid-rows-3 gap-2 h-64">
+                    <div class="bg-pink-600 rounded-lg col-span-3 p-2 flex items-center justify-center font-bold">Header</div>
+                    <div class="bg-blue-600 rounded-lg col-span-2 row-span-1 p-2 flex items-center justify-center font-bold">Main</div>
+                    <div class="bg-purple-600 rounded-lg col-span-1 row-span-1 p-2 flex items-center justify-center font-bold">Sidebar</div>
+                    <div class="bg-indigo-600 rounded-lg col-span-3 p-2 flex items-center justify-center font-bold">Footer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-20 py-10 bg-purple-900 bg-opacity-60">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-1">
+                    <h3 class="text-xl font-bold mb-4">Grid Master</h3>
+                    <p class="text-purple-200">Domina el diseño web con Tailwind CSS Grid.</p>
+                </div>
+                <div class="md:col-span-3">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div>
+                            <h4 class="font-bold mb-4">Recursos</h4>
+                            <ul class="space-y-2 text-purple-200">
+                                <li>Documentación</li>
+                                <li>Tutoriales</li>
+                                <li>Plantillas</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">Comunidad</h4>
+                            <ul class="space-y-2 text-purple-200">
+                                <li>Foro</li>
+                                <li>Discord</li>
+                                <li>GitHub</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">Soporte</h4>
+                            <ul class="space-y-2 text-purple-200">
+                                <li>Preguntas frecuentes</li>
+                                <li>Contacto</li>
+                                <li>Privacidad</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-purple-700 text-center text-purple-300">
+                <p>Creado para demostración de Tailwind CSS Grid &copy; 2025</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
