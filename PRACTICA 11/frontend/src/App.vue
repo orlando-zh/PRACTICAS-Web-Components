@@ -1,30 +1,54 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="container">
+    <h1>Api de Nombres</h1>
+
+    <ItemForm @refresh="fetchItems" />
+    <ItemList :items="items" @refresh="fetchItems" @edit="selectItem" />
+    <ItemEdit v-if="selectedItem" :item="selectedItem" @refresh="onEdited" />
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
+<script setup>
+import { ref } from 'vue';
+import axios from 'axios';
+import ItemForm from './components/ItemForm.vue';
+import ItemList from './components/ItemList.vue';
+import ItemEdit from './components/ItemEdit.vue';
+
+const items = ref([]);
+const selectedItem = ref(null);
+
+const fetchItems = async () => {
+  const response = await axios.get('http://localhost:3000/items');
+  items.value = response.data;
+  selectedItem.value = null;
+};
+
+const selectItem = (item) => {
+  selectedItem.value = { ...item }; // Clonamos para editar
+};
+
+const onEdited = () => {
+  fetchItems();
+};
+
+fetchItems(); // Al montar
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
 }
 </style>

@@ -4,66 +4,59 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 
 const app = express();
-const port = 3000;
+const PORT = 3000;
 
-//middlewares
-
+// Middlewares
 app.use(cors());
 app.use(bodyParser.json());
 
-// leer el json
-
+// Leer la "base de datos"
 const readData = () => {
-    const data = fs.readFileSync('./data.json', 'utf8');
-    return JSON.parse(data);
-}
+  const data = fs.readFileSync('./data.json', 'utf8');
+  return JSON.parse(data);
+};
 
-// escribir el json
-
+// Escribir en la "base de datos"
 const writeData = (data) => {
-    fs.writeFileSync('./data.json', JSON.stringify(data, null, 2), 'utf8');
-}
+  fs.writeFileSync('./data.json', JSON.stringify(data, null, 2));
+};
 
-// end point
-// obtener todos los items
-app.get('./items', (req, res) => {
-    const data = readData();
-    res.json(data);
+// Endpoints
+
+// Obtener todos
+app.get('/items', (req, res) => {
+  const items = readData();
+  res.json(items);
 });
 
-// crear nuevo item
-
+// Crear nuevo
 app.post('/items', (req, res) => {
-    const data = readData();
-    const newItem = { id: Date.now(), ...req.body};
-    items.push(newItem);
-    writeData(items);
-    res.status(201).json(newItem);
+  const items = readData();
+  const newItem = { id: Date.now(), ...req.body };
+  items.push(newItem);
+  writeData(items);
+  res.json(newItem);
 });
 
-// actualizar item
-
+// Actualizar
 app.put('/items/:id', (req, res) => {
-    const items = readData();
-    const id = parseInt(req.params.id);
-    const updateItems =
-                items.map(item => item.id === id ? { ...item, ...timingSafeEqual.body } : item);
-    writeData(updateItems);
-    res.json({ message: 'item updata successfully'});
-
+  const items = readData();
+  const id = parseInt(req.params.id);
+  const updatedItems = items.map(item => item.id === id ? { ...item, ...req.body } : item);
+  writeData(updatedItems);
+  res.json({ message: 'Item actualizado' });
 });
 
-// eliminar item
-
+// Eliminar
 app.delete('/items/:id', (req, res) => {
-    const items = readData();
-    const id = parseInt(req.params.id);
-    const filteredItems = items.filter(item => item.id !== id);
-    writeData(filteredItems);
-    res.json({ message: 'item deleted successfully'});
-
+  const items = readData();
+  const id = parseInt(req.params.id);
+  const filteredItems = items.filter(item => item.id !== id);
+  writeData(filteredItems);
+  res.json({ message: 'Item eliminado' });
 });
 
-app.listen(port, () => {
-    console.log(`server is running on http://localhost:${Port}`)
+// Iniciar servidor
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
